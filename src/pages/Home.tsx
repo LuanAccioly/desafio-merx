@@ -1,18 +1,13 @@
 "use client";
 
-import { Flex, Image, Input, Layout, Switch } from "antd";
-import { Content, Header } from "antd/es/layout/layout";
+import { Flex, Image, Layout, Switch } from "antd";
+import { Header } from "antd/es/layout/layout";
 import api from "@/services/api";
 import { CharacterCard } from "@/components/CharacterCard";
-import {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
 import { CharacterData } from "@/types/characters";
 import { useEffect, useState } from "react";
 import Search from "antd/es/input/Search";
-import { Space, Typography } from "antd";
+import { Typography } from "antd";
 
 export const HomePage = () => {
   const marvelLogo = "/marvel_logo.svg";
