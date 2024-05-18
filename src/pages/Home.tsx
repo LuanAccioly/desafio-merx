@@ -6,10 +6,10 @@ import api from "@/services/api";
 import { CharacterCard } from "@/components/CharacterCard";
 import { CharacterData } from "@/types/characters";
 import { useEffect, useState } from "react";
-import Search from "antd/es/input/Search";
 import { Typography } from "antd";
+import Search from "antd/es/input/Search";
 
-export const HomePage = () => {
+const HomePage = () => {
   const marvelLogo = "/marvel_logo.svg";
 
   const [characters, setCharacters] = useState<CharacterData[]>([]);
@@ -104,3 +104,5 @@ export const HomePage = () => {
     </Layout>
   );
 };
+
+export default HomePage;
