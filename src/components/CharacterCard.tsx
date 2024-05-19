@@ -86,7 +86,6 @@ const ComicsCarousel: React.FC<ComicProps> = ({ characterID }) => {
     <Flex
       style={{
         flexDirection: "column",
-        // backgroundColor: "#EC1D24",
         marginTop: "20px",
         borderRadius: 10,
         padding: 10,
@@ -118,13 +117,12 @@ const Comic = (comic: ComicData) => {
   return (
     <Card
       key={comic.id}
-      hoverable
+      // hoverable
       style={{ width: 200, height: 380, margin: 10 }}
       cover={
         <Image
           style={{ objectFit: "cover" }}
           height={300}
-          preview={false}
           alt={comic.title}
           src={comic.thumbnail.path + "." + comic.thumbnail.extension}
         />
@@ -134,27 +132,5 @@ const Comic = (comic: ComicData) => {
     </Card>
   );
 };
-{
-  /* <Flex style={{ flexDirection: "row", flexWrap: "wrap" }}>
-  {comics.map((comic) => (
-    <Card
-      key={comic.id}
-      hoverable
-      style={{ width: 180, height: 200, margin: 10 }}
-      cover={
-        <Image
-          style={{ objectFit: "cover" }}
-          height={250}
-          preview={false}
-          alt={comic.title}
-          src={comic.thumbnail.path + "." + comic.thumbnail.extension}
-        />
-      }
-    >
-      <Meta title={comic.title} description={"#" + comic.id} />
-    </Card>
-  ))}
-</Flex> */
-}
 
 export { CharacterCard };
