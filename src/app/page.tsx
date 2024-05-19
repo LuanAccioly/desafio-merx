@@ -68,7 +68,7 @@ export default function Home() {
       <Flex
         style={{
           flexDirection: "column",
-          padding: "0px 40px",
+          padding: "0px 40px 40px",
         }}
         justify="flex-end"
         align="end"
