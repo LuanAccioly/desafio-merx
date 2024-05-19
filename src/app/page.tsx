@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Image, Layout, Switch } from "antd";
+import { Flex, Image, Layout, Spin, Switch } from "antd";
 import { Header } from "antd/es/layout/layout";
 import { CharacterCard } from "@/components/CharacterCard";
 import { CharacterData } from "@/types/characters";
@@ -14,25 +14,31 @@ export default function Home() {
   const [characters, setCharacters] = useState<CharacterData[]>([]);
   const [search, setSearch] = useState("");
   const [ignoreIncomplete, setIgnoreIncomplete] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { Text } = Typography;
 
   useEffect(() => {
     const getData = async () => {
       const data = await getCharacters();
       setCharacters(data);
+      setIsLoading(false);
     };
     getData();
   }, []);
 
   async function handleSearch() {
+    setIsLoading(true);
     const data = await getCharacters(search);
     setCharacters(data);
+    setIsLoading(false);
   }
 
   async function handleLogo() {
     setSearch("");
+    setIsLoading(true);
     const data = await getCharacters();
     setCharacters(data);
+    setIsLoading(false);
   }
 
   function handleIgnoreIncomplete() {
@@ -85,27 +91,37 @@ export default function Home() {
             onChange={handleIgnoreIncomplete}
           />
         </Flex>
-        <Flex
-          style={{ width: "100%" }}
-          gap={20}
-          justify="center"
-          align="center"
-          wrap="wrap"
-        >
-          {characters
-            .filter((character) => {
-              if (
-                ignoreIncomplete &&
-                character.thumbnail.path.includes("image_not_available")
-              ) {
-                return false;
-              }
-              return true;
-            })
-            .map((character) => (
-              <CharacterCard character={character} key={character.id} />
-            ))}
-        </Flex>
+        {isLoading ? (
+          <Flex
+            style={{ width: "100%", height: "90vh" }}
+            justify="center"
+            align="center"
+          >
+            <Spin size="large" />
+          </Flex>
+        ) : (
+          <Flex
+            style={{ width: "100%" }}
+            gap={20}
+            justify="center"
+            align="center"
+            wrap="wrap"
+          >
+            {characters
+              .filter((character) => {
+                if (
+                  ignoreIncomplete &&
+                  character.thumbnail.path.includes("image_not_available")
+                ) {
+                  return false;
+                }
+                return true;
+              })
+              .map((character) => (
+                <CharacterCard character={character} key={character.id} />
+              ))}
+          </Flex>
+        )}
       </Flex>
     </Layout>
   );
