@@ -2,7 +2,6 @@
 
 import { Flex, Image, Layout, Switch } from "antd";
 import { Header } from "antd/es/layout/layout";
-import api from "@/services/api";
 import { CharacterCard } from "@/components/CharacterCard";
 import { CharacterData } from "@/types/characters";
 import { useEffect, useState } from "react";
@@ -41,7 +40,7 @@ export default function Home() {
   }
 
   return (
-    <Layout>
+    <Layout style={{ height: "100%", minHeight: "100vh" }}>
       <Header
         style={{
           display: "flex",
@@ -86,7 +85,13 @@ export default function Home() {
             onChange={handleIgnoreIncomplete}
           />
         </Flex>
-        <Flex gap={20} justify="center" align="center" wrap="wrap">
+        <Flex
+          style={{ width: "100%" }}
+          gap={20}
+          justify="center"
+          align="center"
+          wrap="wrap"
+        >
           {characters
             .filter((character) => {
               if (
