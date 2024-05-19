@@ -67,7 +67,7 @@ export default function Home() {
           gap="10px"
           justify="flex-end"
         >
-          <Text>Ignorar incompletos</Text>
+          <Text>Ignorar resultados sem imagem</Text>
           <Switch
             checked={ignoreIncomplete}
             onChange={handleIgnoreIncomplete}
