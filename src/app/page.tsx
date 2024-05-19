@@ -30,6 +30,12 @@ export default function Home() {
     setCharacters(data);
   }
 
+  async function handleLogo() {
+    setSearch("");
+    const data = await getCharacters();
+    setCharacters(data);
+  }
+
   function handleIgnoreIncomplete() {
     setIgnoreIncomplete((prev) => !prev);
   }
@@ -44,7 +50,14 @@ export default function Home() {
           gap: 20,
         }}
       >
-        <Image height={40} src={marvelLogo} alt="marvel logo" preview={false} />
+        <Image
+          onClick={handleLogo}
+          height={40}
+          src={marvelLogo}
+          alt="marvel logo"
+          preview={false}
+          style={{ cursor: "pointer" }}
+        />
         <Search
           placeholder="Busque por um personagem"
           value={search}
