@@ -8,8 +8,8 @@ export async function getCharacters(name?: string): Promise<CharacterData[]> {
   const params: { [key: string]: string | number | undefined } = {
     limit: 100,
     ts: 1,
-    apikey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
-    hash: process.env.NEXT_PUBLIC_HASH,
+    apikey: process.env.PUBLIC_KEY,
+    hash: process.env.HASH,
   };
 
   if (name) {
@@ -25,8 +25,8 @@ export async function getComics(characterId: number): Promise<ComicData[]> {
   const params: { [key: string]: string | number | undefined } = {
     limit: 8,
     ts: 1,
-    apikey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
-    hash: process.env.NEXT_PUBLIC_HASH,
+    apikey: process.env.PUBLIC_KEY,
+    hash: process.env.HASH,
   };
 
   const response = await api.get(`/characters/${characterId}/comics`, {

@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+const BASE_URL = process.env.BASE_URL;
 
 const api = axios.create({
   baseURL: BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 

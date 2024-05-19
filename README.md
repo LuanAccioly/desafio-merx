@@ -72,16 +72,16 @@ yarn install
 
 1. Crie um arquivo `.env` na raiz do projeto
 2. Adicione as variáveis necessárias para o Next.js:
-   - NEXT_PUBLIC_BASE_URL
-   - NEXT_PUBLIC_PUBLIC_KEY
-   - NEXT_PUBLIC_HASH
+   - BASE_URL
+   - PUBLIC_KEY
+   - HASH
 
     Exemplo:
 
     ```
-    NEXT_PUBLIC_BASE_URL=https://gateway.marvel.com/v1/public
-    NEXT_PUBLIC_PUBLIC_KEY=b136dac77627
-    NEXT_PUBLIC_HASH=b136dac77627
+    BASE_URL=https://gateway.marvel.com/v1/public
+    PUBLIC_KEY=b136dac77627
+    HASH=b136dac77627
     ```
 
 3. Inicie o servidor de desenvolvimento
