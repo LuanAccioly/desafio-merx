@@ -64,7 +64,7 @@ const CharacterCard: React.FC<CharacterProps> = ({ character }) => {
         cover={
           <Image
             style={{ objectFit: "cover" }}
-            height={"50%"}
+            height={250}
             preview={false}
             alt={character.name}
             src={character.thumbnail.path + "." + character.thumbnail.extension}
